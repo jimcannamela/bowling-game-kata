@@ -44,7 +44,7 @@ tenth frame.
 1. Can score a game of all (20) ones
     - Score of 20
 1. Can score a game with one spare (say two fives), followed by one roll with three pins down, and the rest (17) gutters
-    - Score of 19
+    - Score of 16
 1. Can score a game with one strike, followed by two rolls with three pins down each, and the rest (16) gutters
     - Score of 22
 1. Can score a perfect game - ten strikes + two bonus 10s in the tenth frame
