@@ -38,11 +38,12 @@ tenth frame.
 1. Can create a new game
     - Score should be zero
 1. Can record rolling of ball
+    - Should accept an integer for the number of pins knocked down in that roll
 1. Can score a game of all (20) gutters
     - Score of zero
 1. Can score a game of all (20) ones
     - Score of 20
-1. Can score a game with one spare (say two fives), followed by two rolls with three pins down each, and the rest (17) gutters
+1. Can score a game with one spare (say two fives), followed by one roll with three pins down, and the rest (17) gutters
     - Score of 19
 1. Can score a game with one strike, followed by two rolls with three pins down each, and the rest (16) gutters
     - Score of 22
