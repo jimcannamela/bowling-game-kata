@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class GameTest {
     Game game;
@@ -13,17 +14,24 @@ public class GameTest {
     }
 
 //    Can create a new game
+//    Initialize Game
+    @Test
+    public void testCreateGame () {
+        // Setup
+        // Execution
+        // Assertions
+        assertNotNull(game, "Create game object, shout not be null");
+    }
 //    Score should be zero
     @Test
     public void testNewGameScoreZero () {
         // Setup
         int expected = 0;
         // Execution
-        int actual = game.newGame();
+        int actual = game.getScore();
         // Assertions
         assertEquals(expected, actual, "Create new game return score of zero");
     }
-
 //    Can record rolling of ball
 //    Should accept an integer for the number of pins knocked down in that roll
     @Test
@@ -71,7 +79,13 @@ public class GameTest {
         // Setup
         int expected = 16;
         // Execution
-        int actual = game.gotSpare();
+        game.rollBall(5);
+        game.rollBall(5);
+        game.rollBall(3);
+        for (int i = 0; i < 17; i++) {
+            game.rollBall(0);
+        }
+        int actual = game.getScore();
         // Assertions
         assertEquals(expected, actual, "Roll a spare with a 3 fill and all zeros");
     }
@@ -82,7 +96,13 @@ public class GameTest {
         // Setup
         int expected = 22;
         // Execution
-        int actual = game.gotStrike();
+        game.rollBall(10);
+        game.rollBall(3);
+        game.rollBall(3);
+        for (int i = 0; i < 16; i++) {
+            game.rollBall(0);
+        }
+        int actual = game.getScore();
         // Assertions
         assertEquals(expected, actual, "Roll a strike with a 6 fill and all zeros");
     }
@@ -93,7 +113,10 @@ public class GameTest {
         // Setup
         int expected = 300;
         // Execution
-        int actual = game.gotAllStrikes();
+        for (int i = 0; i < 12; i++) {
+            game.rollBall(10);
+        }
+        int actual = game.getScore();
         // Assertions
         assertEquals(expected, actual, "Roll a perfect game");
     }
