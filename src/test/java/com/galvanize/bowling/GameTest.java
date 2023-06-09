@@ -96,9 +96,9 @@ public class GameTest {
         // Setup
         int expected = 22;
         // Execution
-        game.rollBall(10);
-        game.rollBall(3);
-        game.rollBall(3);
+        game.rollBall(10);  // ball = 0
+        game.rollBall(3);   // ball = 1
+        game.rollBall(3);   // ball = 2
         for (int i = 0; i < 16; i++) {
             game.rollBall(0);
         }
@@ -121,4 +121,47 @@ public class GameTest {
         assertEquals(expected, actual, "Roll a perfect game");
     }
 
+    @Test
+    public void testCandlepinGame_allThrees () {
+        // Setup
+        int expected = 90;
+        // Execution
+        for (int i = 0; i < 30; i++) {
+            game.rollBall(3);
+        }
+        int actual = game.getScore();
+        // Assertions
+        assertEquals(expected, actual, "Roll 30 balls knock down 3 pins with each, score 90");
+    }
+
+
+    @Test
+    public void testCandlepinGame () {
+        // Setup
+        int expected = 174;
+        // Execution
+        game.rollBall(3);
+        game.rollBall(7);   // Spare
+        game.rollBall(7);
+        game.rollBall(2);
+        game.rollBall(1);  // open box
+        game.rollBall(10);  // strike
+        game.rollBall(6);
+        game.rollBall(4);  // spare
+        game.rollBall(10);  // strike
+        game.rollBall(3);
+        game.rollBall(7);
+        game.rollBall(7);
+        game.rollBall(2);
+        game.rollBall(1);
+        game.rollBall(10);
+        game.rollBall(6);
+        game.rollBall(4);
+        game.rollBall(10);
+        game.rollBall(6);
+        game.rollBall(4);
+        int actual = game.getScore();
+        // Assertions
+        assertEquals(expected, actual, "Random rolls");
+    }
 }

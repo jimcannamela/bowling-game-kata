@@ -2,7 +2,7 @@ package com.galvanize.bowling;
 
 public class Game {
 
-    int[] rolls = new int[21];
+    int[] rolls = new int[30];
     int roll = 0;
 
     public int getScore() {
@@ -17,8 +17,8 @@ public class Game {
                 score += 10 + rolls[ball+2];
                 ball +=2;
             } else {
-                score += rolls[ball] + rolls[ball+1];
-                ball +=2;
+                score += rolls[ball] + rolls[ball+1] + rolls[ball+2];
+                ball +=3;
             }
         }
 
